@@ -1,0 +1,26 @@
+package main
+
+import (
+    "fmt"
+    "os"
+    "bufio"
+)
+
+func main(){
+    w := bufio.NewWriter(os.Stdout)
+    r := bufio.NewReader(os.Stdin)
+    defer w.Flush()
+
+    var a int = 0
+    var b int = 1
+    var count int
+    fmt.Fscan(r, &count)
+
+    for i := 0; i < count; i++{
+        temp := a
+        a = b
+        b = temp + b
+    }
+    fmt.Fprint(w, a)
+    
+}
